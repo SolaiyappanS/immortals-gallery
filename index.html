@@ -14,7 +14,7 @@
 
 <script>
   const spreadsheetId = "1JQT9bdyQOAaWAcJKPzt3XF-xmi2tO9rpCWx7mboZ4p4";
-  const parser = new PublicGoogleSheetsParser();
+  export const parser = new PublicGoogleSheetsParser();
   function extractID(string) {
     return "https://drive.google.com/uc?export=view&id=".concat(
       string.split("?id=")[1]
