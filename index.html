@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Immortals Gallery</title>
+    <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css" />
+  </head>
+  <body></body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/public-google-sheets-parser@latest"></script>
+
+<script>
+  const spreadsheetId = "1JQT9bdyQOAaWAcJKPzt3XF-xmi2tO9rpCWx7mboZ4p4";
+  const parser = new PublicGoogleSheetsParser();
+  function extractID(string) {
+    return "https://drive.google.com/uc?export=view&id=".concat(
+      string.split("?id=")[1]
+    );
+  }
+  parser.parse(spreadsheetId).then((row) => {
+    showResults(row);
+  });
+</script>
