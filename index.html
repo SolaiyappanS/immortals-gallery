@@ -17,9 +17,11 @@
   <body onload="getItems()">
     <div class="container">
       <div class="wrapper">
-        <nav class="navbar navbar-light bg-light">
+        <nav class="navbar navbar-light bg-light fixed-top">
           <div class="navbar nav">
-            <a class="navbar-brand">Immortals Gallery</a>
+            <a class="navbar-brand" style="margin-left: 50px"
+              >Immortals Gallery</a
+            >
             <button class="btn btn-primary m-1" onclick="getItems()">
               Refresh
             </button>
@@ -31,7 +33,7 @@
             </button>
           </div>
         </nav>
-        <div id="result"></div>
+        <div id="result" style="padding-top: 100px"></div>
       </div>
     </div>
   </body>

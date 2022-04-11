@@ -7,7 +7,7 @@ function getItems() {
       result +=
         "<div class='card'><img id='immortals" +
         i +
-        "' src= '' class='card-img-top'/>" +
+        "' src= '' class='card-img-top' style='height:300px; object-fit:contain'/>" +
         "<div class='card-body'><p class='card-text'>" +
         "<table class='table table-striped'><tbody><tr><th>Name</th><td>" +
         Array.prototype.slice.call(items)[i].Name +
