@@ -5,24 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Immortals Gallery</title>
-    <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/public-google-sheets-parser@latest"></script>
+    <script src="index.js"></script>
   </head>
-  <body>
-    Hello Guys
+  <body onload="getItems()">
+    <div class="container">
+      <div class="wrapper">
+        <nav class="navbar navbar-light bg-light">
+          <div class="navbar nav">
+            <a class="navbar-brand">Immortals Gallery</a>
+            <button class="btn btn-primary m-1" onclick="getItems()">
+              Refresh
+            </button>
+            <button class="btn btn-secondary m-1" onclick="editItems()">
+              Edit Contents
+            </button>
+            <button class="btn btn-success m-1" onclick="addNewItem()">
+              Add New
+            </button>
+          </div>
+        </nav>
+        <div id="result"></div>
+      </div>
+    </div>
   </body>
 </html>
-
-<script src="https://cdn.jsdelivr.net/npm/public-google-sheets-parser@latest"></script>
-
-<script>
-  const spreadsheetId = "1JQT9bdyQOAaWAcJKPzt3XF-xmi2tO9rpCWx7mboZ4p4";
-  export const parser = new PublicGoogleSheetsParser();
-  function extractID(string) {
-    return "https://drive.google.com/uc?export=view&id=".concat(
-      string.split("?id=")[1]
-    );
-  }
-  parser.parse(spreadsheetId).then((row) => {
-    showResults(row);
-  });
-</script>
