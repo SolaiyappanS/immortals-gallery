@@ -55,6 +55,7 @@ function editItems() {
     window.open(
       "https://docs.google.com/spreadsheets/d/1JQT9bdyQOAaWAcJKPzt3XF-xmi2tO9rpCWx7mboZ4p4/edit?usp=sharing"
     );
+  else alert("Incorrect security key");
 }
 
 function addNewItem() {
@@ -64,4 +65,5 @@ function addNewItem() {
     window.open(
       "https://docs.google.com/forms/d/e/1FAIpQLSfTJnvNIt2BWj14JYR_s0XOZXoYvuYUKlFdPPrPN84GXQO6ZQ/viewform?usp=sf_link"
     );
+  else alert("Incorrect security key");
 }
