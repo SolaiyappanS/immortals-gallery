@@ -1,0 +1,14 @@
+.card img {
+  height: 300px;
+  object-fit: contain;
+}
+
+button span {
+  display: contents;
+}
+
+@media (max-width: 800px) {
+  button span {
+    display: none;
+  }
+}

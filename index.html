@@ -11,25 +11,43 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="index.css" />
     <script src="https://cdn.jsdelivr.net/npm/public-google-sheets-parser@latest"></script>
     <script src="index.js"></script>
   </head>
   <body onload="getItems()">
     <div class="container">
-      <div class="wrapper">
-        <nav class="navbar navbar-light bg-light fixed-top">
+      <div class="wrapper p-3">
+        <nav class="navbar navbar-light bg-light fixed-top ps-5 pe-5">
           <div class="navbar nav">
-            <a class="navbar-brand" style="margin-left: 50px"
-              >Immortals Gallery</a
+            <a class="navbar-brand mb-0 h1">Immortals Gallery</a>
+            <button
+              class="btn btn-primary m-1"
+              onclick="getItems()"
+              title="Refresh"
             >
-            <button class="btn btn-primary m-1" onclick="getItems()">
-              Refresh
+              <i class="bi bi-arrow-repeat"></i>
+              <span>Refresh</span>
             </button>
-            <button class="btn btn-secondary m-1" onclick="editItems()">
-              Edit Contents
+            <button
+              class="btn btn-secondary m-1 float-sm-start"
+              onclick="editItems()"
+              title="Edit Contents"
+            >
+              <i class="bi bi-pencil-square"></i>
+              <span>Edit Contents</span>
             </button>
-            <button class="btn btn-success m-1" onclick="addNewItem()">
-              Add New
+            <button
+              class="btn btn-success m-1"
+              onclick="addNewItem()"
+              title="Add New Person"
+            >
+              <i class="bi bi-plus-lg"></i>
+              <span>Add New Person</span>
             </button>
           </div>
         </nav>
