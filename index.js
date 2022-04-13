@@ -5,9 +5,11 @@ function getItems() {
   parser.parse(spreadsheetId).then((items) => {
     for (var i = 0; i < items.length; i++) {
       result +=
-        "<div class='card'><img id='immortals" +
+        "<div class='card'><div class='item'><span class='notify-badge'>" +
+        (i + 1) +
+        "</span><img id='immortals" +
         i +
-        "' src= '' class='card-img-top' alt='Unsupported Image type'/>" +
+        "' src= '' class='card-img-top' alt='Unsupported Image type'/></div>" +
         "<div class='card-body'><h2 class='card-title'>" +
         Array.prototype.slice.call(items)[i].Name +
         "</h2><h4 class='card-subtitle mb-2 text-muted'>" +
@@ -21,9 +23,9 @@ function getItems() {
           ? Array.prototype.slice.call(items)[i].Contact_Number_2
           : "-") +
         "</td></tr><tr><th>Current Address</th><td>" +
-        Array.prototype.slice.call(items)[i].Current_Address +
+        formatAddress(Array.prototype.slice.call(items)[i].Current_Address) +
         "</td></tr><tr><th>Permanent Address</th><td>" +
-        Array.prototype.slice.call(items)[i].Permanent_Address +
+        formatAddress(Array.prototype.slice.call(items)[i].Permanent_Address) +
         "</td></tr><tr><th>Company/ Institution Name</th><td>" +
         Array.prototype.slice.call(items)[i].Company_Name +
         "</td></tr><tr><th>Company/ Institution Location</th><td>" +
@@ -54,8 +56,8 @@ function formatDate(str) {
   return date[2].split(")")[0] + "/" + date[1] + "/" + date[0].split("(")[1];
 }
 
-function formatContact(str) {
-  return str;
+function formatAddress(str) {
+  return str.split(",").join(", ");
 }
 
 function editItems() {
