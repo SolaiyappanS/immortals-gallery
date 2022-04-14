@@ -5,16 +5,18 @@ function getItems() {
   parser.parse(spreadsheetId).then((items) => {
     for (var i = 0; i < items.length; i++) {
       result +=
-        "<div class='card'><div class='item'><span class='notify-badge'>" +
+        "<div class='card bg-dark bg-opacity-75'><span class='badge bg-dark'>" +
         (i + 1) +
         "</span><img id='immortals" +
         i +
-        "' src= '' class='card-img-top' alt='Unsupported Image type'/></div>" +
-        "<div class='card-body'><h2 class='card-title'>" +
+        "' src= '' class='card-img-top m-1' alt='Unsupported Image type (or) Unsupported Browser (or) Poor Network'/>" +
+        "<div class='card-body'><h2 class='card-title text-white'>" +
         Array.prototype.slice.call(items)[i].Name +
-        "</h2><h4 class='card-subtitle mb-2 text-muted'>" +
+        "</h2><h4 class='card-subtitle mb-2'>" +
+        Array.prototype.slice.call(items)[i].Pass_out_year +
+        " Batch - " +
         Array.prototype.slice.call(items)[i].Event +
-        "</h4><table class='table table-striped'><tbody><tr><th>DOB</th><td>" +
+        "</h4><table class='table table-dark'><tbody><tr><th>DOB</th><td>" +
         formatDate(Array.prototype.slice.call(items)[i].DOB) +
         "</td></tr><tr><th>Contact Number 1</th><td>" +
         Array.prototype.slice.call(items)[i].Contact_Number_1 +
@@ -30,11 +32,9 @@ function getItems() {
         Array.prototype.slice.call(items)[i].Company_Name +
         "</td></tr><tr><th>Company/ Institution Location</th><td>" +
         Array.prototype.slice.call(items)[i].Company_Location +
-        "</td></tr><tr><th>Pass-out Year</th><td>" +
-        Array.prototype.slice.call(items)[i].Pass_out_year +
         "</td></tr><tr><th>Blood Group</th><td>" +
         Array.prototype.slice.call(items)[i].Blood_Group +
-        "</td></tr></tbody></table></div></div>";
+        "</td></tr></tbody></table></div></div><br><br>";
     }
 
     document.getElementById("result").innerHTML = result;
@@ -53,7 +53,13 @@ function getImageURL(str) {
 
 function formatDate(str) {
   var date = str.split(",");
-  return date[2].split(")")[0] + "/" + date[1] + "/" + date[0].split("(")[1];
+  return (
+    date[2].split(")")[0] +
+    "/" +
+    (date[1] * 1 + 1) +
+    "/" +
+    date[0].split("(")[1]
+  );
 }
 
 function formatAddress(str) {
@@ -79,3 +85,13 @@ function addNewItem() {
     );
   else alert("Incorrect security key");
 }
+var i = 0;
+var root = document.querySelector(":root");
+setInterval(function () {
+  i++;
+  root.style.setProperty(
+    "--image-background",
+    "url('images/background" + i + ".jpg')"
+  );
+  if (i === 5) i = 0;
+}, 7500);
