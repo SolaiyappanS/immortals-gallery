@@ -3,6 +3,8 @@ function getItems() {
   const parser = new PublicGoogleSheetsParser();
   var result = "";
   parser.parse(spreadsheetId).then((items) => {
+    items.sort(GetSortOrder("Name"));
+    items.sort(GetSortOrder("Pass_out_year"));
     for (var i = 0; i < items.length; i++) {
       result +=
         "<div class='card bg-dark bg-opacity-75'><span class='badge bg-dark'>" +
@@ -47,6 +49,17 @@ function getItems() {
       );
     }
   });
+}
+
+function GetSortOrder(prop) {
+  return function (a, b) {
+    if (a[prop] > b[prop]) {
+      return 1;
+    } else if (a[prop] < b[prop]) {
+      return -1;
+    }
+    return 0;
+  };
 }
 
 function getImageURL(str) {
