@@ -32,6 +32,8 @@ function getItems() {
         Array.prototype.slice.call(items)[i].Company_Name +
         "</td></tr><tr><th>Company/ Institution Location</th><td>" +
         Array.prototype.slice.call(items)[i].Company_Location +
+        "</td></tr><tr><th>Email</th><td>" +
+        Array.prototype.slice.call(items)[i].Email_Id +
         "</td></tr><tr><th>Blood Group</th><td>" +
         Array.prototype.slice.call(items)[i].Blood_Group +
         "</td></tr></tbody></table></div></div><br><br>";
@@ -67,7 +69,8 @@ function formatAddress(str) {
 }
 
 function editItems() {
-  var securityKey = prompt("Enter the security key to edit contents");
+  var securityKey = "";
+  securityKey = prompt("Enter the security key to edit contents");
 
   if (securityKey === "X1T2H7U8")
     window.open(
@@ -77,13 +80,14 @@ function editItems() {
 }
 
 function addNewItem() {
-  var securityKey = prompt("Enter the security key");
+  var securityKey = "";
+  securityKey = prompt("Enter the security key");
 
   if (securityKey === "M5R8Y6S3")
     window.open(
       "https://docs.google.com/forms/d/e/1FAIpQLSfTJnvNIt2BWj14JYR_s0XOZXoYvuYUKlFdPPrPN84GXQO6ZQ/viewform?usp=sf_link"
     );
-  else alert("Incorrect security key");
+  else if (securityKey !== "") alert("Incorrect security key");
 }
 var i = 0;
 var root = document.querySelector(":root");
