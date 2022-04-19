@@ -63,7 +63,9 @@ function GetSortOrder(prop) {
 }
 
 function getImageURL(str) {
-  return "https://drive.google.com/uc?export=view&id=" + str.split("id=")[1];
+  if (str.includes("id="))
+    return "https://drive.google.com/uc?export=view&id=" + str.split("id=")[1];
+  else return "https://drive.google.com/uc?export=view&id=" + str.split("/")[5];
 }
 
 function formatDate(str) {
