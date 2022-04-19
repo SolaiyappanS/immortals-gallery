@@ -8,17 +8,15 @@ function getItems() {
     for (var i = 0; i < items.length; i++) {
       result +=
         "<div class='card bg-dark bg-opacity-75'><span class='badge bg-dark'>" +
-        (i + 1) +
+        Array.prototype.slice.call(items)[i].Pass_out_year +
         "</span><img id='immortals" +
         i +
         "' src= '' class='card-img-top m-1' alt='Unsupported Image type (or) Unsupported Browser (or) Poor Network'/>" +
         "<div class='card-body'><h2 class='card-title text-white'>" +
         Array.prototype.slice.call(items)[i].Name +
         "</h2><h4 class='card-subtitle mb-2'>" +
-        Array.prototype.slice.call(items)[i].Pass_out_year +
-        " Batch - " +
         Array.prototype.slice.call(items)[i].Event +
-        "</h4><table class='table table-dark'><tbody><tr><th>DOB</th><td>" +
+        "</h4><div class='table-responsive'><table class='table table-dark'><tr><th>DOB</th><td>" +
         formatDate(Array.prototype.slice.call(items)[i].DOB) +
         "</td></tr><tr><th>Contact Number 1</th><td>" +
         Array.prototype.slice.call(items)[i].Contact_Number_1 +
@@ -38,7 +36,7 @@ function getItems() {
         Array.prototype.slice.call(items)[i].Email_Id +
         "</td></tr><tr><th>Blood Group</th><td>" +
         Array.prototype.slice.call(items)[i].Blood_Group +
-        "</td></tr></tbody></table></div></div><br><br>";
+        "</td></tr></table></div></div></div><br><br>";
     }
 
     document.getElementById("result").innerHTML = result;
@@ -80,7 +78,13 @@ function formatDate(str) {
 }
 
 function formatAddress(str) {
-  return str.split(",").join(", ");
+  return str
+    .split(",")
+    .join(", ")
+    .split(",  ")
+    .join(", ")
+    .split(" ,")
+    .join(",");
 }
 
 function editItems() {
