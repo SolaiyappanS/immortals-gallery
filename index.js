@@ -7,14 +7,14 @@ function getItems() {
     items.sort(GetSortOrder("Pass_out_year"));
     for (var i = 0; i < items.length; i++) {
       result +=
-        "<div class='card bg-dark bg-opacity-75'><span class='badge bg-dark'>" +
-        Array.prototype.slice.call(items)[i].Pass_out_year +
-        "</span><img id='immortals" +
+        "<div class='card bg-dark bg-opacity-75'><img id='immortals" +
         i +
         "' src= '' class='card-img-top m-1' alt='Unsupported Image type (or) Unsupported Browser (or) Poor Network'/>" +
         "<div class='card-body'><h2 class='card-title text-white'>" +
         Array.prototype.slice.call(items)[i].Name +
         "</h2><h4 class='card-subtitle mb-2'>" +
+        Array.prototype.slice.call(items)[i].Pass_out_year +
+        " Batch - " +
         Array.prototype.slice.call(items)[i].Event +
         "</h4><div class='table-responsive'><table class='table table-dark'><tr><th>DOB</th><td>" +
         formatDate(Array.prototype.slice.call(items)[i].DOB) +
