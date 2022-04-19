@@ -104,11 +104,18 @@ function addNewItem() {
 }
 var i = 0;
 var root = document.querySelector(":root");
+var images = [
+  "1tO6h7gg0V95S-NddsALcx5it_iwPe0qV",
+  "1SbDKbgSJeStFb4z4hyEpocvOLs3gBN2X",
+  "1HJl_49d35KZHtb6TT0qskn3lCZn69Ant",
+  "1SX2-VmtAk7UatKbN8VArwqMJ_ZHKDZnQ",
+  "1-f7ADQ8-lNyArUf62hGX8doozIJAzTa1",
+];
 setInterval(function () {
-  i++;
   root.style.setProperty(
     "--image-background",
-    "url('images/background" + i + ".jpg')"
+    "url('https://drive.google.com/uc?export=view&id=" + images[i] + "')"
   );
+  i++;
   if (i === 5) i = 0;
 }, 7500);
